@@ -1,16 +1,265 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.25%;
-    box-sizing: border-box;
+  font-size: 62.25%;
+  box-sizing: border-box;
+  widows: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(#667eea, #764ba2) center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.wrapper {
+  width: 80%;
+  height: 90vh;
+  display: grid;
+  border: 1px solid #21d4fd;
+  grid-template-columns: repeat(12, minmax(5rem,1fr));
+  grid-template-columns: repeat(6, 1fr);
+
+  grid-template-areas:
+    "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2"
+    "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2"
+    "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2"
+    "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2"
+    "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2"
+    "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2";
+
+}
+
+/*  Text of New game hold and roll now */
+
+.new-game {
+    grid-column: 5 / 9;
+    grid-row: 1 / 2;
+    margin-top: 2rem;
+    z-index: 5;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.new-game__heading {
+    font-size: 3rem;
+    color: white;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+.dice {
+grid-row: 3 / 5;
+grid-column: 6 / 8;
+z-index: 5;
+margin-bottom: 15rem;
+justify-self: center;
+}
+
+.dice__icon {
+    width: 10rem;
+}
+
+.roll-dice,
+.hold {
+    grid-column: 5 / 9;
+    justify-self: center;
+    align-self: center;
+   
+}
+
+.roll-dice {
+    grid-row: 4 / 5;
+    margin-bottom: 1rem;
+    
+}
+
+.hold {
+    grid-row: 5 / 6;
+}
+
+.roll-dice__heading,
+.hold__heading {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 1;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.roll-dice,
+.hold,
+.new-game {
+    transition: all .4s;
+    backface-visibility: hidden;
+}
+
+.roll-dice__heading,
+.hold__heading,
+.new-game__heading {
+    transition: all .1s;
+    backface-visibility: hidden;
+}
+
+.new-game,
+.player__name,
+.wrapper {
+        text-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+        
+}
+
+.roll-dice:hover,
+.hold:hover,
+.new-game:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.roll-dice:active,
+.hold:active,
+.new-game:active {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.roll-dice:hover .roll-dice__heading,
+.hold:hover .hold__heading,
+.new-game:hover .new-game__heading {
+    font-weight: 400;
+    text-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.6);
+}
+
+/* Player's Area basic setup */
+
+.player__1 {
+  grid-area: player-1;
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  align-self: stretch;
+}
+
+.player__2 {
+  grid-area: player-2;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+
+.player {
+  display: grid;
+  grid-template-rows: repeat(8, [row-start] 1fr [row-end]);
+  grid-template-columns: repeat(8, [col-start] 1fr [col-end]);
+  align-items: center;
+  justify-items: center;
+}
+
+.player__name {
+  grid-column: 3 / 7;
+  grid-row: row-start 2 / row-end 2;
+  /* background: yellow; */
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.player--heading {
+    font-size: 3rem;
+    color: white;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.active {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.player__score {
+  grid-column: 4 / 6;
+  grid-row: row-start 3 / row-end 3;
+  font-size: 4rem;
+  color: white;
+  font-weight: 300;
+}
+
+.player__box {
+  grid-row: row-start 6 / row-end 7;
+  grid-column: col-start 4 / col-end 5;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    #f85032,#e73827
+  );
+
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: white;
+  width: 15rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player__current {
+font-size: 2rem;
+font-weight: 300;
+}
+
+.player__points {
+font-size: 4rem;
+font-weight: 300;
+}
+
+/* ////////////////////////// */
+/*          icons            */
+
+.icon__box {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+.game__icon {
+    width: 100%;
+    height: 100%;
+    fill: white;
+}
+
+.icon__hold,
+.icon__roll,
+.icon__active {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.icon__active {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+
+/* test purpose */
+
