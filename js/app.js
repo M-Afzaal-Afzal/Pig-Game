@@ -31,6 +31,8 @@ btnRoll.addEventListener("click", () => {
   dice = Math.floor(Math.random() * 6 + 1);
   currentScore += dice;
 
+  document.querySelector('.dice__icon').setAttribute("src","img/dice-" + dice + ".png");
+
   if (dice === 1) {
     currentScore = 0;
     point.innerText = currentScore;
