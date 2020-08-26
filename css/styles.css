@@ -28,8 +28,8 @@ body {
   height: 90vh;
   display: grid;
   border: 1px solid #21d4fd;
-  grid-template-columns: repeat(12, minmax(5rem,1fr));
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(12, minmax(6.5rem,1fr));
+  /* grid-template-rows: repeat(6, 1fr); */
 
   grid-template-areas:
     "player-1 player-1 player-1 player-1 player-1 player-1 player-2 player-2 player-2 player-2 player-2 player-2"
@@ -55,12 +55,24 @@ body {
 }
 
 .new-game__heading {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: white;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
 
+.new-game__heading,
+.roll-dice__heading,
+.hold__heading {
+  background: none;
+  border: none;
+}
+
+.new-game__heading:focus,
+.roll-dice__heading:focus,
+.hold__heading:focus {
+  outline:none;
 }
 
 .dice {
@@ -258,8 +270,33 @@ font-weight: 300;
 
 .active {
     display: block;
+    color: yellow;
 }
 
+/* ////////////////////////////// */
+/* ////// Author Styling /////// */
 
-/* test purpose */
+.author {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 300;
+  grid-column: 1 / -1;
+  grid-row: 6  / 7;
+  display: inline-block;
+  justify-self: center;
+  align-self: end;
+  margin-bottom: .5rem;
+  letter-spacing: 1.5px;
+}
 
+.author__heading {
+  color: yellow;
+  font-size: 1.2rem;
+  display: inline-block;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.heart__icon {
+  color: red;
+}

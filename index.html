@@ -8,6 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/app.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
                     <use xlink:href="img/sprite.svg#icon-chevron-with-circle-right"></use>
                 </svg>
             </span>
-            <h1 class="new-game__heading">New Game</h1>
+            <button class="new-game__heading">New Game</button>
         </div>
 
         <div class="dice">
@@ -31,18 +33,18 @@
         <div class="player player__1">
 
             <div class="player__name ">
-                <span class="icon__active active">
+                <span class="icon__active active" id="active-0">
                     <svg class="game__icon">
                         <use xlink:href="img/sprite.svg#icon-hand-paper-o"></use>
                     </svg>
                 </span>
-                <h1 class="player--heading">Player 1</h1>
+                <h1 class="player--heading" id="name-0">Player 1</h1>
             </div>
 
-            <div class="player__score player__score--1 ">0</div>
+            <div class="player__score player__score--0 " id="score-0">0</div>
             <div class="player__box">
                 <div class="player__current">Current</div>
-                <div class="player__points player__points--1">0</div>
+                <div class="player__points player__points--0" id="point-0">0</div>
             </div>
         </div>
 
@@ -50,18 +52,18 @@
         <div class="player player__2">
 
             <div class="player__name">
-                <span class="icon__active ">
+                <span class="icon__active" id="active-1">
                     <svg class="game__icon">
                         <use xlink:href="img/sprite.svg#icon-hand-paper-o"></use>
                     </svg>
                 </span>
-                <h1 class="player--heading">Player 2</h1>
+                <h1 class="player--heading" id="name-1">Player 2</h1>
             </div>
 
-            <div class="player__score player__score--2">0</div>
+            <div class="player__score player__score--1" id="score-1">0</div>
             <div class="player__box">
                 <div class="player__current">Current</div>
-                <div class="player__points player__points--2">0</div>
+                <div class="player__points player__points--1" id="point-1">0</div>
             </div>
 
         </div>
@@ -72,7 +74,7 @@
                     <use xlink:href="img/sprite.svg#icon-happy"></use>
                 </svg>
             </span>
-            <h1 class="roll-dice__heading">Roll dice</h1>
+            <btn class="roll-dice__heading">Roll dice</btn>
         </div>
 
         <div class="hold">
@@ -81,7 +83,11 @@
                     <use xlink:href="img/sprite.svg#icon-sad"></use>
                 </svg>
             </span>
-            <h1 class="hold__heading">Hold</h1>
+            <button class="hold__heading">Hold</button>
+        </div>
+
+        <div class="author">
+            <p author__text>Made with <span class="heart__icon">&hearts;&hearts;&hearts;</span>  by <span class="author__heading">M Afzaal Afzal</span> in Punjab,Pakistan.</p>
         </div>
 
     </div>
