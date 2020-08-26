@@ -31,6 +31,10 @@ btnRoll.addEventListener("click", () => {
   dice = Math.floor(Math.random() * 6 + 1);
   currentScore += dice;
 
+  document.querySelector('.dice__icon').classList.add("block");
+  document.querySelector('.dice__icon').classList.remove("none");
+
+
   document.querySelector('.dice__icon').setAttribute("src","img/dice-" + dice + ".png");
 
   if (dice === 1) {
@@ -105,4 +109,8 @@ btnNew.addEventListener("click", () => {
 
   document.getElementById("score-0").textContent = 0;
   document.getElementById("score-1").textContent = 0;
+
+  document.querySelector('.dice__icon').classList.add("none");
+  document.querySelector('.dice__icon').classList.remove("block");
+
 });
